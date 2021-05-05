@@ -37,14 +37,14 @@ Now you should be able to just type `juice` and hit enter to start a new one. Co
 Note that each time you stop and start the container, you will lose your progress. This applies to all containers - if you don't have a mounted volume for whatever data you're working with, you're going to lose it if you lose the container. For this particular one, you can save and restore your progress through buttons on the scoreboard if you'd like.
 
 ### Getting a shell to a running container
-If we wanted to get a better sense of how this application was running, we can get a shell to the container and start digging around.
+If we want to get a better sense of how this application is running, we can get a shell to the container and start digging around.
 
 1. This command will get you a shell to the container:
    ```
    docker exec -it juice sh
    ```
-2. If we run `ls`, we can see the various files that make the application up
-3. We can also run `ps` to see where the application starts from. We'll see that there are a few processes that return:
+2. Running `ls` will show us the various files that make up the application
+3. We can also run `ps` to see where the application starts from. There are a few processes that return:
    ```
    PID   USER     TIME  COMMAND
     1 juicer    0:00 {node} npm
@@ -53,7 +53,7 @@ If we wanted to get a better sense of how this application was running, we can g
    67 juicer    0:00 ps
    ```
 
-   This output tells us a couple of things. First and foremost, this target appears to be built with Node.js, so we can look for known vulnerabilities associated with that language. We also learn that the application is started by running `node build/app`.
+   The output tells us a couple of things. First and foremost, this target appears to be built with Node.js, so we can look for known vulnerabilities associated with that language. We also learn that the application is started by running `node build/app`.
 
    If you're curious, you can execute this command: `cat build/app.js` to view the contents of that particular file.
 
