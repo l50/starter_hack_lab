@@ -1,7 +1,7 @@
 # A little bit of this, a little bit of that - a smorgasbord of practical security skills in firehose format
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/l50/starter_hack_lab/blob/main/LICENSE)
 
-This repo contains materials for the talk that I'm giving for [UNM - ISMART](https://www.instagram.com/ismartunm) on 4/23/2021.
+This repo contains materials for the talk that I gave for [UNM - ISMART](https://www.instagram.com/ismartunm) on 4/23/2021.
 
 ## Legal Stuff
 I am not speaking on behalf of my employer (or any previous employers), nor am I here representing any of my current or previous employers. My opinions do not reflect those of my current or previous employers and are solely my own.
