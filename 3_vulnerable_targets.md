@@ -234,6 +234,13 @@ Oracle findings: https://www.oracle.com/technetwork/security-advisory/cpujul2018
 This vulnerability can allow you to read files on the underlying filesystem, perform SSRF (another vulnerability you should learn about), take down the entire application with a Denial of Service via the [Billion Laughs Attack](https://en.wikipedia.org/wiki/Billion_laughs_attack), and in rare cases even get RCE (only if the application is running PHP and the `expect` module is loaded).
 
 
+### Insecure Direct Object Reference (IDOR)
+
+
+
+#### Why is this vulnerability a concern?
+This vulnerability can allow you to access information that your standard account (and/or administrative account in some cases) should not be able to access. This puts data that would otherwise be private at risk of being compromised (e.g. credit card information and mailing addresses). Additionally, this type of vulnerability can cause violations of many privacy policies dependent upon the industry (e.g. HIPAA, GDPR).
+
 ## Intentionally Vulnerable Targets
 If you get through all of the challenges in the juice shop and are looking for more intentionally vulnerable containers, please check out my [containers dotfile](https://github.com/l50/dotfiles/blob/master/containers#L21,L31).
 
