@@ -240,9 +240,10 @@ This vulnerability can allow you to read files on the underlying filesystem, per
 ![](/images/IDOR_3.png)
 ![](/images/IDOR_4.png)
 ![](/images/IDOR_5.png)
-![](/images/IDOR_6.png)
-![](/images/IDOR_7.png)
 ![](/images/IDOR_8.png)
+![](/images/IDOR_7.png)
+![](/images/IDOR_6.png)
+
 
 
 #### Why is this vulnerability a concern?
