@@ -241,7 +241,7 @@ This vulnerability can allow you to read files on the underlying filesystem, per
 ![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_4.png)
 ![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_5.png)
 ![](/images/IDOR_6.png)
-![](images/IDOR_7.png)
+![](/images/IDOR_7.png)
 
 
 
