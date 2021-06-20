@@ -235,10 +235,7 @@ This vulnerability can allow you to read files on the underlying filesystem, per
 
 ### Insecure Direct Object Reference (IDOR)
 
-![](images/IDOR_1.png)
-
-some text
-
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 
 #### Why is this vulnerability a concern?
