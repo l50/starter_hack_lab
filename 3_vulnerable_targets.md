@@ -1,8 +1,6 @@
 # Vulnerable Targets
 This section brings together all of the things that we've done so far. We're going to apply some of what we learned about the web to attack an intentionally vulnerable target.
 
-![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_1.jpg)
-![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_2.png)
 ## Using Docker to get intentionally vulnerable applications
 Docker is a subject that we could talk about for hours on end. One application that is especially helpful for aspiring security folks like yourselves is standing up intentionally vulnerable web applications. I'm going to throw you all in the deep end a bit here; we're going to be learning about Docker as we go along, and it'll probably be overwhelming. That's why this stuff is online, so you can revisit it later.
 
@@ -237,7 +235,14 @@ This vulnerability can allow you to read files on the underlying filesystem, per
 
 ### Insecure Direct Object Reference (IDOR)
 
-![Image of Yaktocat](images/IDOR_1.png)
+![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_1.png)
+![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_2.png)
+![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_3.png)
+![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_4.png)
+![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_5.png)
+![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_6.png)
+![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_7.png)
+
 
 
 #### Why is this vulnerability a concern?
