@@ -235,14 +235,14 @@ This vulnerability can allow you to read files on the underlying filesystem, per
 
 ### Insecure Direct Object Reference (IDOR)
 
-![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_1.png)
-![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_2.png)
-![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_3.png)
-![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_4.png)
-![](https://raw.githubusercontent.com/sw8y/starter_hack_lab/feature/adding_idor_content/images/IDOR_5.png)
+![](/images/IDOR_1.png)
+![](/images/IDOR_2.png)
+![](/images/IDOR_3.png)
+![](/images/IDOR_4.png)
+![](/images/IDOR_5.png)
 ![](/images/IDOR_6.png)
 ![](/images/IDOR_7.png)
-
+![](/images/IDOR_8.png)
 
 
 #### Why is this vulnerability a concern?
