@@ -235,6 +235,7 @@ This vulnerability can allow you to read files on the underlying filesystem, per
 
 ### Insecure Direct Object Reference (IDOR)
 
+![]images/IDOR_1.png
 
 
 #### Why is this vulnerability a concern?
