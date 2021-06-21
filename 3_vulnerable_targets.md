@@ -215,7 +215,7 @@ Now let's try going down from our original number so that our request reads "*/r
 
 
 #### Why is this vulnerability a concern?
-This vulnerability can allow you to access information that your standard account (and/or administrative account in some cases) should not be able to access. This puts data that would otherwise be private at risk of being compromised (e.g. credit card information and mailing addresses). Additionally, this type of vulnerability can cause violations of many privacy policies dependent upon the industry (e.g. HIPAA, GDPR).
+This vulnerability can allow you to access information that your standard account (and/or administrative account in some cases) should not be able to access. This puts data that would otherwise be private at risk of being compromised (e.g. credit card information and mailing addresses). Additionally, this type of vulnerability can cause violations of many privacy policies dependent upon the industry and companies you do business with (e.g. HIPAA, GDPR).
 
 ### XML External Entities (XXE)
 The last vulnerability I wanted to cover is XML External Entity attacks. This is one of my personal favorites - it is an injection vulnerability that exploits a vulnerable XML parser. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML#:~:text=Extensible%20Markup%20Language%20(XML)%20is,free%20open%20standards%E2%80%94define%20XML.) is a markup language that's commonly used to transfer data.
