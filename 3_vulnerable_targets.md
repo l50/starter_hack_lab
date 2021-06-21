@@ -193,14 +193,16 @@ Once the account has been created, we can use the email and password that we sup
 Now it's shopping time! Go ahead and add a couple of items to the basket. As for me, I'll be adding some apple juice and a green smoothie (health is wealth, ya know?). Once you've added some items, click on "Your Basket".
 ![](/images/IDOR_4.png)
 
-Hop on over to BurpSuite under **HTTP History** and notice the captured request that says "/rest/basket/{*number*}. Your number may differ from the below screenshot, but the example is still the same. 
+Hop on over to BurpSuite under **HTTP History** and notice the captured request that says "/rest/basket/{*number*}". Your number may differ from the below screenshot, but the example is still the same. 
 ![](/images/IDOR_5.png)
 
 The request we are seeing is for us to view the items within our basket. As you may have guessed, the number at the end of the URL refers to the basket belonging to us, which in this case is "6". This means that any modifications (i.e. adding or deleting items) under our authenticated account will go to basket 6. We can now right-click on this request and select "Send to repeater". This will allow us to modify the same request without having to interact with the JuiceShop UI. If we resend the request, we can see that we receive a "304 Not Modified" status code. This simply means that we did nothing to the request.
 ![](/images/IDOR_8.png)
 
-However, let's say we went up a number. Let's change the number at the end of this request to 
+However, let's say we went up a number. Let's change the number at the end of this request so that it reads "*/rest/basket/7*". Once done, press the "Send" button in repeater. It looks like we received a 200 OK status code, but this basket is empty.
 ![](/images/IDOR_7.png)
+
+Now let's try going down from our original number so that our request reads "*/rest/basket/5*". As you can see, we've got some data back this time (and you've just completed another challenge)!
 ![](/images/IDOR_6.png)
 
 
