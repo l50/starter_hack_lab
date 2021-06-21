@@ -179,7 +179,7 @@ Additionally, for some awesome and out-of-the-box ideas for XSS, check out [this
 ### Insecure Direct Object Reference (IDOR)
 
 
-Insecure Direct Object Reference (IDOR) vulnerabilties can be one of the simplest and easiest vulnerabilities to identify when it comes to conducting security research. They are typically found in endpoints that lack proper authorization checks between what a user can and cannot see.
+Insecure Direct Object Reference (IDOR) vulnerabilties can be one of the simplest and easiest vulnerabilities to identify when it comes to conducting security research. They are typically found in endpoints that lack proper authorization checks thus placing no restrictions between what a user can and cannot see.
 
 *At this point, ensure that you have BurpSuite running and configured to intercept traffic. Due to the nature of this demonstration, you can use the "Open Browser" feature within BurpSuite to interact with the page ("Proxy" -> "Intercept" tab -> click "Open Browser").*
 
