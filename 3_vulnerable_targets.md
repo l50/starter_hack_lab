@@ -183,7 +183,7 @@ Insecure Direct Object Reference (IDOR) vulnerabilties can be one of the simples
 
 *At this point, ensure that you have BurpSuite running and configured to intercept traffic. Due to the nature of this demonstration, you can use the "Open Browser" feature within BurpSuite to interact with the page ("Proxy" -> "Intercept" tab -> click "Open Browser").*
 
-Within juiceshop, we are going to go shopping for a bit! Well not really - but we will be filling our cart up with goodies! The first thing we'll want to do is create an account. As a note, it is always best to use "test" credentials and NOT provide information that points directly back to us. Now, let's go ahead and create an account by clicking on the link that says "Not yet a customer?" underneath the login page. 
+Within juiceshop, we are going to go shopping for a bit! Well not really - but we will be filling our cart up with goodies! The first thing we'll want to do is create an account. As a note, it is always best to use test credentials and NOT provide information that points directly back to us. Now, let's go ahead and create an account by clicking on the link that says "Not yet a customer?" underneath the login prompt. 
 
 ![](/images/IDOR_1.png)
 ![](/images/IDOR_2.png)
