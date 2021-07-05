@@ -1,22 +1,23 @@
 # Virtual Machine Setup
-This section will help you to configure your kali VM that you can use to reproduce the topics covered during the presentation.
+This section will help you to configure the Kali VM that you'll be using to follow along with the content in this repo. 
+
+**Note:** If you want to bring your own system, that's perfectly fine! Feel free to skip to the bottom of this page to move on.
 
 1. Fullscreen your VM
-   * On Mac OS, you can use Command-F
-   * On Linux, you can use Right Ctrl-F
+   * On Mac OS, you can use `⌘F`
+   * On Linux, you can use `Ctrl F` - note that you have to use the right `Ctrl` key on your keyboard. The left one won't work here by default. 
 
 2. Change the default password
 
-   As you're probably aware, `vagrant/vagrant` is not the most secure password combination out there. Let's fix that real quick. Open a terminal by clicking this icon in the upper left-hand corner of the screen:
+   As you're probably aware, `vagrant/vagrant` is not the most secure username/password combination out there. Let's fix that real quick by opening a terminal window. You can do so by clicking this icon in the upper left-hand corner of the screen:
 
    ![](images/terminal_location.png)
 
-   Next, run this command:
+   Once the window is open, type this command in:
    ```
    sudo passwd vagrant
    ```
-
-   When prompted, enter whatever password you desire. The next time you log in, this will be the password that you use for the vagrant user.
+   and hit the Enter key. When prompted, enter whatever password you desire. The next time you log in, this will be the password that you use for the vagrant user.
 
 3. Install Docker
 
@@ -39,10 +40,11 @@ This section will help you to configure your kali VM that you can use to reprodu
 
 4. Start Burp
 
-   Burp Suite is a proxy that you can use to intercept web traffic. It is immensely helpful when it comes to web application security, and I'm of the opinion that most (if not all) security professionals should have some familiarity. To run it, type this command into a terminal window:
+   [Burp Suite](https://portswigger.net/burp) is a proxy that can be used to intercept web traffic. It is immensely helpful for web application security and is definitely worth spending time to learn. To start it, type this command into a terminal window:
    ```
    burpsuite
    ```
+   and hit the Enter key.
 
    Check the box next to **Don't show again for this JRE** and click **OK** when you see this message:
 
@@ -50,19 +52,23 @@ This section will help you to configure your kali VM that you can use to reprodu
 
    Click **I Agree** for the terms and conditions.
 
-   If there's an update available, go ahead and click **Close**. At this point, you should be at this window:
+   If there's an update available, go ahead and click **Close** for now. Don't worry, you'll be prompted again the next time you open Burp. 
+   
+   At this point, this is roughly what you should see on your screen:
 
    ![](images/burp_start.png)
 
    Go ahead and click **Next** and then **Start Burp**
 
-   Burp should now be running. It'll probably look like this:
+   Burp should now be running. It'll probably look similar to this:
 
-   ![](images/burp_start.png)
+   ![](images/burp_running.png)
 
-   Burp should be running. Go ahead and click on **Proxy** and then click **Intercept is on** to turn intercept mode off for now.
-
-   Next, click **Open Browser**. Generally speaking, this is the window configuration I like to have when I'm working with Burp:
+   Next, click **Proxy** and then click **Intercept is on** to turn intercept mode off for now. 
+   
+   The last step for this section is to click **Open Browser**. 
+   
+   In order to work with both the Browser and Burp, you may consider arranging your windows like so:
 
    ![](images/burp_window_layout.png)
 

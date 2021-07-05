@@ -1,6 +1,6 @@
 # Bug Bounty Hunting
 
-If you've been enjoying all the stuff we've done so far, I have great news for you! You can get paid to do this whenever you want. I'm not kidding.
+If you've been enjoying all the stuff we've done so far, know that you can get paid to do this whenever you want. No joke.
 
 Bug Bounty Hunting is a relatively new industry. Several platforms exist to facilitate bug bounty hunting - the most popular are [hackerone](https://www.hackerone.com/) and [bugcrowd](https://www.bugcrowd.com/). These platforms give an organization the means to create public or private programs for their web apps, products, mobile apps, etc. Bug Bounty Hunters (bbh) on the platform can join these programs and hunt for vulnerabilities in any of the targets that are listed as part of the program's "scope." If a bbh can find a vulnerability, they report the vulnerability to the organization through the platform and wait to hear back on the finding. If the finding is valid, they will get awarded points on the bug bounty hunting platform, and potentially money.
 
@@ -14,10 +14,6 @@ Some companies have their own bug bounty programs, such as [Facebook](https://ww
 1. It allows you to build a ton of great skills. If you're not ready to apply for an internship yet, this is something that you can do to build up your abilities that you will be shopping around to potential employers once you're done with school (or for an internship).
 2. It can be a way to make some decent side money if you get good enough. Hell, there are even some hackers that [have made over a million dollars](https://www.infosecurity-magazine.com/news/hacker-earns-2m-in-bug-bounties/) just doing bug bounty hunting. Keep in mind these folks are very, very good, and it probably took them a lot of years of experience to get to that point.
 3. You get to choose when you do bug bounty hunting, and who you do it for. This is great if you're a full-time student that needs some extra money.
-
-Thanks for checking out this talk.
-
-I appreciate your time and hope you've learned something useful.
 
 ## Additional Resources
 

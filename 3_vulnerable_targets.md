@@ -1,15 +1,15 @@
 # Vulnerable Targets
-This section brings together all of the things that we've done so far. We're going to apply some of what we learned about the web to attack an intentionally vulnerable target.
+This section brings together all of the things that we've covered so far. We're going to apply some of what we learned about the web to attack an intentionally vulnerable target.
 
 ## Using Docker to get intentionally vulnerable applications
-Docker is a subject that we could talk about for hours on end. One application that is especially helpful for aspiring security folks like yourselves is standing up intentionally vulnerable web applications. I'm going to throw you all in the deep end a bit here; we're going to be learning about Docker as we go along, and it'll probably be overwhelming. That's why this stuff is online, so you can revisit it later.
+Docker is a subject that we could talk about for hours on end. One application that is especially helpful for aspiring security folks like yourselves is using it to stand up intentionally vulnerable web applications. We will be learning a little bit about Docker as we go along, but you are fully encouraged to seek out other resources to get a more complete understanding of the technology.
 
-Let's start with one of my favorites, the OWASP Juice Shop.
+Let's start with one of the classics, the OWASP Juice Shop.
 
 1. Open the terminal on your VM and open a new tab with Ctrl-Shift-t. Note you can also close tabs with Ctrl-Shift-w
 2. Paste in the following command with Ctrl-Shift-p:
    ```
-   docker run --rm -d -p 3005:3000 -e NODE_ENV=unsafe --name=juice bkimminich/juice-shop
+   docker run --rm -d -p 127.0.0.1:3005:3000 -e NODE_ENV=unsafe --name=juice bkimminich/juice-shop
    ```
 3. Wait a minute or so for the container to download
 4. Once it has finished, run this command:
@@ -22,7 +22,7 @@ You should now have an intentionally vulnerable target that you can do pretty mu
 
 Let's make it even easier to run by adding this command as an alias to your `~/.zshrc` file:
 ```
-echo 'alias juice="docker run --rm -d -p 3005:3000 -e NODE_ENV=unsafe --name=juice bkimminich/juice-shop"' | tee -a ~/.zshrc
+echo 'alias juice="docker run --rm -d -p 127.0.0.1:3005:3000 -e NODE_ENV=unsafe --name=juice bkimminich/juice-shop"' | tee -a ~/.zshrc
 ```
 
 To make this alias work, either open a new terminal window or run `source ~/.zshrc`. You can stop the currently running container by running:
@@ -57,10 +57,10 @@ If we want to get a better sense of how this application is running, we can get 
 
    If you're curious, you can execute this command: `cat build/app.js` to view the contents of that particular file.
 
-   I encourage you to spend more time looking around later to get a better sense of how the application is running.
+   You are encouraged to spend time looking around later to get a better sense of how the application is running.
 
 ### Attack Methodology
-Generally, when I'm looking at a target I like to review the source code if it is made available. In this case, we can view the source code [here](https://github.com/bkimminich/juice-shop), since this is an open-source project.
+It can be incredibly helpful to review the source code for a target if it is made available. Because our target is an open-source project, we can review the source code [here](https://github.com/bkimminich/juice-shop).
 
 We will touch a teensy bit on finding vulnerabilities through source code review, but you should really invest time in learning it. It makes you a substantially better hacker.
 
@@ -156,18 +156,12 @@ Looking in the second file, we quickly get our answer:
 
 It turns out the content that we provide for the search value gets inserted into the page via `innerHTML`. [The W3C docs](https://www.w3.org/TR/2008/WD-html5-20080610/dom.html#innerhtml0) tell us that script elements do not get executed when they are inserted into a page via `innerHTML`. So even though the search field is vulnerable to XSS, a `script` payload isn't going to work.
 
-These vulnerabilities are quite common and can be found in several different products. Back in 2017 and 2018, I found a few in a couple of Microsoft products - specifically Sharepoint and Azure. Because Microsoft has a bug bounty program, I actually got paid for these findings! We'll talk about that in a bit - in the meantime, if you want to find more details on those findings, here are the links:
-
-Sharepoint finding: https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2017-8629
-
-Azure finding: https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8600
-
-It should be noted that there are multiple types of XSS, but we're not going to cover that here. There's plenty of information you can find on the internet, and ultimately I encourage you to learn what each of them is, and what separates them from the others.
+**Note:** There are multiple types of XSS, but we're not going to cover all of them here. There's plenty of information you can find on the internet, which you are highly encouraged to review. It's important to understand which each type is and how they differ from the others.
 
 #### Why is this vulnerability a concern?
 XSS is an immensely powerful vulnerability. It allows you to run arbitrary JavaScript within the context of a vulnerable application. You as the attacker have a whole language at your disposal - the possibilities are endless.
 
-I find a lot of success daisy chaining XSS with other vulnerabilities for maximum impact. For example, [Jenkins](https://www.jenkins.io/) is a tool that's used to automate building, testing, and deploying software. One of the features it includes is a console in which you can run arbitrary [Groovy](https://groovy-lang.org/) code. So finding a cross-site scripting vulnerability in Jenkins can ultimately be used to get Remote Code Execution (RCE) on the underlying server. RCEs are considered some of the worst vulnerabilities in our industry.
+XSS tends to be a great vulnerability to daisy chain with other vulnerabilities for maximum impact. For example, [Jenkins](https://www.jenkins.io/) is a tool that's used to automate building, testing, and deploying software. One of the features it includes is a console in which you can run arbitrary [Groovy](https://groovy-lang.org/) code. Subsequently, finding a cross-site scripting vulnerability in Jenkins can be used to get Remote Code Execution (RCE) on the underlying server. RCEs are considered to be one of the most impactful and dangerous vulnerabilities in our industry.
 
 Feel free to teach yourself more about this attack by using a Jenkins container of your very own:
 ```
@@ -177,7 +171,7 @@ docker run --rm -d  -p 8080:8080 -p 50000:50000 --name=jenkins jenkins
 Additionally, for some awesome and out-of-the-box ideas for XSS, check out [this talk](https://www.youtube.com/watch?v=hKdcDce3FW4).
 
 ### XML External Entities (XXE)
-The last vulnerability I wanted to cover is XML External Entity attacks. This is one of my personal favorites - it is an injection vulnerability that exploits a vulnerable XML parser. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML#:~:text=Extensible%20Markup%20Language%20(XML)%20is,free%20open%20standards%E2%80%94define%20XML.) is a markup language that's commonly used to transfer data.
+XML External Entity attacks are an injection bug that exploit a vulnerable XML parser. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML#:~:text=Extensible%20Markup%20Language%20(XML)%20is,free%20open%20standards%E2%80%94define%20XML.) is a markup language that's commonly used to transfer data.
 
 Navigate to http://localhost:3005/#/complain. This is another endpoint you can discover through the methodology we discussed earlier in the `Hidden paths in source code` section.
 
@@ -224,15 +218,8 @@ To see the fruit of our labors, go to **Proxy** -> **HTTP History** and find the
 
 To make sure it's completely clear: we were able to leverage a file upload form to send the application malicious XML. It executed this malicious XML, which allowed us to specify a file that we wanted to read on the underlying filesystem. This file was then displayed back to us in the error response.
 
-These vulnerabilities are not as common as XSS, but they are still plenty to be found. Back in 2018, I found a few in some Oracle and IBM products. More details can be found at these links:
-
-IBM finding: https://www-01.ibm.com/support/docview.wss?uid=swg22015943
-
-Oracle findings: https://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html, https://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html
-
 #### Why is this vulnerability a concern?
 This vulnerability can allow you to read files on the underlying filesystem, perform SSRF (another vulnerability you should learn about), take down the entire application with a Denial of Service via the [Billion Laughs Attack](https://en.wikipedia.org/wiki/Billion_laughs_attack), and in rare cases even get RCE (only if the application is running PHP and the `expect` module is loaded).
-
 
 ## Intentionally Vulnerable Targets
 If you get through all of the challenges in the juice shop and are looking for more intentionally vulnerable containers, please check out my [containers dotfile](https://github.com/l50/dotfiles/blob/master/containers#L21,L31).

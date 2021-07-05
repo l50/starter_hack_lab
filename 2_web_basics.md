@@ -1,7 +1,7 @@
 # Web Basics
-This section will help you to understand some of the fundamental concepts around how web applications work. The content is easier to capture and discuss with [Slides](https://docs.google.com/presentation/d/1yY6XPY3Ngzq2Hd14oFZe2BN-kHF2KhkQwGWxtMJwZnE), so that's what I've opted to use.
+This section will cover some of the fundamental concepts around how web applications work. The more academic content is easier to capture with [Slides](https://docs.google.com/presentation/d/1yY6XPY3Ngzq2Hd14oFZe2BN-kHF2KhkQwGWxtMJwZnE), so please go and read through those now.
 
-Now that we have a sense of how HTTP works, let's see some of the things we discussed in practice.
+Great! Now that you have a rough sense for how HTTP works, it's time to practice the concepts with hands-on examples.
 
 ## Enable Capturing Responses
 1. Click **Proxy**
@@ -12,16 +12,16 @@ Now that we have a sense of how HTTP works, let's see some of the things we disc
 1. Click the **Intercept** tab
 2. Click **Intercept is off** to turn intercept mode back on
 3. In the burp browser, go to [https://google.com/](https://google.com/)
-4. Observe that the first intercepted item is a request. Remember what we just talked about in terms of the various components that make up a request.
+4. Take a moment to review the contents of your first intercepted request. Be sure to revisit the slides as needed to acclimate yourself with the various headers. 
 5. Click **Forward** to see the associated response.
 6. Keep clicking **Forward** to see the various requests and responses that make up your browser communicating with google.com - it's probably a lot more complicated than you thought.
 
 ## HTTP History
-It's a bit unwieldy to keep having to click **Forward**. I'm going to show you an area of Burp that can be helpful when you want to get a sense of how the communication is happening between your browser and a web server.
+It's a bit unwieldy to keep having to click **Forward**, and there isn't an easy way to review previous web traffic. This is where Burp's HTTP history tab is incredibly useful.
 
-1. Click **Intercept is on** to turn it off
-2. Click **HTTP history** - this has a listing of all of the requests and responses you've accumulated
-3. Click the `#` in the upper left-hand side to modify the order of the requests - I like descending order myself.
+1. Click **Intercept is on** to turn intercept off
+2. Click **HTTP history** to view all of the requests and responses you've accumulated
+3. Click the `#` in the upper left-hand side to modify the order (ascending or descending) of the listed requests
 
 Feel free to spend time later trying this out with several of the sites you regularly visit to get a sense of how they work.
 

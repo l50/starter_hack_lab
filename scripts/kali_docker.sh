@@ -25,7 +25,7 @@ install_docker() {
         docker-ce-cli
 }
 
-set_docker_user() {
+add_docker_user() {
   sudo usermod -aG docker $DOCKER_USER
 }
 
@@ -50,4 +50,4 @@ while true; do
 done
 
 install_docker
-set_docker_user $DOCKER_USER
+add_docker_user $DOCKER_USER
