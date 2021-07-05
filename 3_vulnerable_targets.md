@@ -170,6 +170,47 @@ docker run --rm -d  -p 8080:8080 -p 50000:50000 --name=jenkins jenkins
 
 Additionally, for some awesome and out-of-the-box ideas for XSS, check out [this talk](https://www.youtube.com/watch?v=hKdcDce3FW4).
 
+### Insecure Direct Object Reference (IDOR)
+
+
+Insecure Direct Object Reference (IDOR) vulnerabilties can be one of the simplest and easiest vulnerabilities to identify when it comes to conducting security research. They are typically found in endpoints that lack proper authorization checks thus placing no restrictions between what a user can and cannot see.
+
+*At this point, ensure that you have BurpSuite running and configured to intercept traffic. Due to the nature of this demonstration, you can use the "Open Browser" feature within BurpSuite to interact with the page ("Proxy" -> "Intercept" tab -> click "Open Browser").*
+
+Within JuiceShop, we are going to go shopping for a bit! Well not really - but we will be filling our cart up with goodies! The first thing we'll want to do is create an account. As a note, it is always best to use test credentials and NOT provide information that points directly back to us. Now, let's go ahead and create an account by clicking on the link that says "Not yet a customer?" underneath the login prompt. 
+
+![](/images/IDOR_1.png)
+![](/images/IDOR_2.png)
+
+Once the account has been created, we can use the email and password that we supplied to log into the store.
+
+![](/images/IDOR_3.png)
+
+Now it's shopping time! Go ahead and add a couple of items to the basket. As for me, I'll be adding some apple juice and a green smoothie (health is wealth, ya know?). Once you've added some items, click on "Your Basket".
+
+![](/images/IDOR_4.png)
+
+Hop on over to BurpSuite under **HTTP History** and notice the captured request that says "/rest/basket/{*number*}". Your number may differ from the below screenshot, but the example is still the same. 
+
+![](/images/IDOR_5.png)
+
+The request we are seeing is for us to view the items within our basket. As you may have guessed, the number at the end of the URL refers to the basket belonging to us, which in this case is "6". This means that any modifications (i.e. adding or deleting items) under our authenticated account will go to basket 6. We can now right-click on this request and select "Send to repeater". This will allow us to modify the same request without having to interact with the JuiceShop UI. If we resend the request, we can see that we receive a "304 Not Modified" status code. This simply means that we did nothing to the request.
+
+![](/images/IDOR_8.png)
+
+However, let's say we went up a number. Let's change the number at the end of this request so that it reads "*/rest/basket/7*". Once done, press the "Send" button in repeater. It looks like we received a 200 OK status code, but this basket is empty.
+
+![](/images/IDOR_7.png)
+
+Now let's try going down from our original number so that our request reads "*/rest/basket/5*". As you can see, we've got some data back this time (and you've just completed another challenge)!
+
+![](/images/IDOR_6.png)
+
+
+
+#### Why is this vulnerability a concern?
+This vulnerability can allow you to access information that your standard account (and/or administrative account in some cases) should not be able to access. This puts data that would otherwise be private at risk of being compromised (e.g. credit card information and mailing addresses). Additionally, this type of vulnerability can cause violations of many privacy policies dependent upon the industry and companies you do business with (e.g. HIPAA, GDPR).
+
 ### XML External Entities (XXE)
 XML External Entity attacks are an injection bug that exploit a vulnerable XML parser. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML#:~:text=Extensible%20Markup%20Language%20(XML)%20is,free%20open%20standards%E2%80%94define%20XML.) is a markup language that's commonly used to transfer data.
 
